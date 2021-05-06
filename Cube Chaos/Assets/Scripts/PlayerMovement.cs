@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,27 +9,46 @@ public class PlayerMovement : MonoBehaviour
     public float zAxisForce = 4000f;
     public float xAxisForce = 100f;
 
+    public GameObject leftButton;
+    public GameObject rightButton;
+
     public void MoveToTheRigth ()
     {
         playerRB.AddForce(xAxisForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
     }
+
     public void MoveToTheLeft()
     {
         playerRB.AddForce(-xAxisForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    /*public void OnPointerDown()
     {
-        // Add force foraward 
-        playerRB.AddForce(0, 0, zAxisForce * Time.deltaTime);
+        if (this.gameObject.name == "leftButton")
+        {
+            MoveToTheLeft();
+        }
 
-        if (Input.GetKey("d"))
+        if(this.gameObject.name == "rightButton")
         {
             MoveToTheRigth();
         }
 
-        if (Input.GetKey("a"))
+    }*/
+
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        // Makes the player moves forward 
+        playerRB.AddForce(0, 0, zAxisForce * Time.deltaTime);
+
+        if (Input.GetKey("d") || Input.GetKey("right"))
+        {
+            MoveToTheRigth();
+        }
+
+        if (Input.GetKey("a") || Input.GetKey("left"))
         {
             MoveToTheLeft();
         }
