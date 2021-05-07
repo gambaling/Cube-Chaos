@@ -2,15 +2,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IPointerDownHandler
 {
     public Rigidbody playerRB;
 
     public float zAxisForce = 4000f;
     public float xAxisForce = 100f;
 
-    public GameObject leftButton;
-    public GameObject rightButton;
+    public Button leftButton;
+    public Button rightButton;
+
+    private string clickedButton;
 
     public void MoveToTheRigth ()
     {
@@ -20,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
     public void MoveToTheLeft()
     {
         playerRB.AddForce(-xAxisForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        clickedButton = this.gameObject.name;
     }
 
     /*public void OnPointerDown()
@@ -37,18 +44,18 @@ public class PlayerMovement : MonoBehaviour
     }*/
 
 
-    // Update is called once per frame
+    // Update is called once per frame (Fixed is used before update whenever you mess with physics to help Unity indentify that and make more realistic);
     void FixedUpdate()
     {
-        // Makes the player moves forward 
+        // Makes the player moves forward; 
         playerRB.AddForce(0, 0, zAxisForce * Time.deltaTime);
 
-        if (Input.GetKey("d") || Input.GetKey("right"))
+        if (Input.GetKey("d") || Input.GetKey("right") || clickedButton == "rightButton")
         {
             MoveToTheRigth();
         }
 
-        if (Input.GetKey("a") || Input.GetKey("left"))
+        if (Input.GetKey("a") || Input.GetKey("left") || clickedButton == "leftButton")
         {
             MoveToTheLeft();
         }
