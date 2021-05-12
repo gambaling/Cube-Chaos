@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour, IPointerDownHandler
         clickedButton = this.gameObject.name;
     }
 
-    // Update is called once per frame (Fixed is used before update whenever you mess with physics to help Unity indentify that and make more realistic);
     void FixedUpdate()
     {
         // Makes the player moves forward; 
