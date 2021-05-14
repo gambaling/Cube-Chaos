@@ -6,9 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float zAxisForce = 4000f;
     public float xAxisForce = 100f;
-
-
-    private string clickedButton;
+    private bool deadByCollision;
 
     public void MoveToTheRigth ()
     {
