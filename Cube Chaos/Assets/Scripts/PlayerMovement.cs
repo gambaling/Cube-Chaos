@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour, IPointerDownHandler
     public Button rightButton;
 
     private string clickedButton;
+    private bool deadByCollision = false;
 
     public void MoveToTheRigth ()
     {
@@ -31,7 +32,7 @@ public class PlayerMovement : MonoBehaviour, IPointerDownHandler
 
     void FixedUpdate()
     {
-        // Makes the player moves forward; 
+        // Makes the player moves forward;
         playerRB.AddForce(0, 0, zAxisForce * Time.deltaTime);
 
         if (Input.GetKey("d") || Input.GetKey("right") || clickedButton == "rightButton")
@@ -45,9 +46,25 @@ public class PlayerMovement : MonoBehaviour, IPointerDownHandler
         }
 
         // Makes the player die if he falls off the plataform
-        if (playerRB.position.y < -1f)
+        if (isDead())
         {
             FindObjectOfType<GameManager>().EndGame();
         }
+    }
+
+    public bool isDead()
+    {
+        return playerRB.position.y < -1f || deadByCollision;
+    }
+
+    public void stopPlayer()
+    {
+        playerRB.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    public void setDeadByCollision()
+    {
+        this.enabled = false;
+        deadByCollision = true;
     }
 }

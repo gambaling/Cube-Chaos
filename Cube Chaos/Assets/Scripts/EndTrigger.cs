@@ -6,5 +6,6 @@ public class EndTrigger : MonoBehaviour
     private void OnTriggerEnter()
     {
         gameManager.CompleteLevel();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().stopPlayer();
     }
 }
