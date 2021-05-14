@@ -127,10 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 3132689982108342589}
-  zAxisForce: 4000
-  xAxisForce: 100
-  leftButton: {fileID: 0}
-  rightButton: {fileID: 0}
+  forwardForce: 8000
+  sidewaysForce: 120
 --- !u!114 &3132689982108342583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,4 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b672960b35b5548a83e79e5f4819d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 3132689982108342584}
+  playerMovement: {fileID: 3132689982108342584}

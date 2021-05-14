@@ -6,40 +6,53 @@ using UnityEngine.SceneManagement;
 public class Score : MonoBehaviour
 {
 
-    public Transform player;
+    private GameObject player;
     public Text levelScoreText;
     public Text levelHighScore;
 
-    private float actualScore;
-    private float actualHighScore;
+    private int actualScore;
+    private int actualHighScore;
 
-    public void SetLevelScore()
+    private String nameActualLevelScore;
+
+    public void SetLevelActualScore()
     {
-        actualScore = player.position.z;
-        levelScoreText.text = Convert.ToInt32(actualScore).ToString();
+        actualScore = Convert.ToInt32(player.transform.position.z);
+        levelScoreText.text = actualScore.ToString();
     }
 
     public void SetLevelHighScore()
     {
         if (actualScore > actualHighScore)
         {
-            PlayerPrefs.SetFloat("LevelHighScore", actualScore);
-            levelHighScore.text = "Level High Score " + Convert.ToUInt32(actualScore).ToString();
+            PlayerPrefs.SetInt(nameActualLevelScore, actualScore);
+            actualHighScore = actualScore;
+            setActualHighScoreText();
         }
 
     }
 
     private void Start()
     {
-        actualHighScore = PlayerPrefs.GetInt("Level " + SceneManager.GetActiveScene().buildIndex + " HighScore", 0);
-        levelHighScore.text = Convert.ToUInt32(actualHighScore).ToString();
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        nameActualLevelScore = "level-" + SceneManager.GetActiveScene().buildIndex + "-highScore";
+        actualHighScore = PlayerPrefs.GetInt(nameActualLevelScore);
+        setActualHighScoreText();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        SetLevelScore();
-        SetLevelHighScore();
+        if(!player.GetComponent<PlayerMovement>().isDead())
+        {
+            SetLevelActualScore();
+            SetLevelHighScore();
+        }
+    }
+
+    private void setActualHighScoreText()
+    {
+        levelHighScore.text = "High Score " + actualHighScore.ToString();
     }
 
 }

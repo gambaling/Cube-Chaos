@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float xAxisForce = 100f;
 
 
+    private string clickedButton;
+
     public void MoveToTheRigth ()
     {
         playerRB.AddForce(xAxisForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
@@ -21,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Makes the player moves forward; 
+        // Makes the player moves forward;
         playerRB.AddForce(0, 0, zAxisForce * Time.deltaTime);
 
         if (Input.GetKey("d") || Input.GetKey("right"))
@@ -35,9 +37,25 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Makes the player die if he falls off the plataform
-        if (playerRB.position.y < -1f)
+        if (isDead())
         {
             FindObjectOfType<GameManager>().EndGame();
         }
+    }
+
+    public bool isDead()
+    {
+        return playerRB.position.y < -1f || deadByCollision;
+    }
+
+    public void stopPlayer()
+    {
+        playerRB.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    public void setDeadByCollision()
+    {
+        this.enabled = false;
+        deadByCollision = true;
     }
 }
