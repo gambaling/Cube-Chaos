@@ -3,14 +3,14 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
 
-    public PlayerMovement movement;
+    public PlayerMovement playerMovement;
 
     // Makes the player die if it hits an obstacle
     void OnCollisionEnter (Collision collisionInfo)
     {
         if (collisionInfo.collider.tag == "Obstacle")
         {
-            movement.enabled = false;
+            playerMovement.setDeadByCollision();
             FindObjectOfType<GameManager>().EndGame();
 
             FindObjectOfType<AudioManager>().Play("CollisionSound");
