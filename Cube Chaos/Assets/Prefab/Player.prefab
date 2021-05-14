@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3132689982108342583}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,8 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 3132689982108342589}
-  forwardForce: 8000
-  sidewaysForce: 120
+  zAxisForce: 4000
+  xAxisForce: 100
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
 --- !u!114 &3132689982108342583
 MonoBehaviour:
   m_ObjectHideFlags: 0
