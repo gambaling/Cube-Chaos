@@ -1,19 +1,12 @@
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class PlayerMovement : MonoBehaviour, IPointerDownHandler
+public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody playerRB;
 
     public float zAxisForce = 4000f;
     public float xAxisForce = 100f;
-
-    public Button leftButton;
-    public Button rightButton;
-
-    private string clickedButton;
-    private bool deadByCollision = false;
+    private bool deadByCollision;
 
     public void MoveToTheRigth ()
     {
@@ -25,22 +18,18 @@ public class PlayerMovement : MonoBehaviour, IPointerDownHandler
         playerRB.AddForce(-xAxisForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        clickedButton = this.gameObject.name;
-    }
 
     void FixedUpdate()
     {
         // Makes the player moves forward;
         playerRB.AddForce(0, 0, zAxisForce * Time.deltaTime);
 
-        if (Input.GetKey("d") || Input.GetKey("right") || clickedButton == "rightButton")
+        if (Input.GetKey("d") || Input.GetKey("right"))
         {
             MoveToTheRigth();
         }
 
-        if (Input.GetKey("a") || Input.GetKey("left") || clickedButton == "leftButton")
+        if (Input.GetKey("a") || Input.GetKey("left"))
         {
             MoveToTheLeft();
         }
