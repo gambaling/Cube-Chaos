@@ -1368,10 +1368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c703f1c406108d478bd385411e7a6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restarDelay: 1
   completeLevelUI: {fileID: 939665043}
   gameOverUI: {fileID: 944796522}
-  endPoint: {fileID: 10435886}
 --- !u!4 &1584664645
 Transform:
   m_ObjectHideFlags: 0

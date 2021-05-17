@@ -6,8 +6,8 @@ public class LevelProgression : MonoBehaviour
 
     public Image uiFillImage;
 
-    public GameObject player;
-    public GameObject endPoint;
+    private GameObject player;
+    private GameObject endPoint;
 
     private Vector3 endPointPosition;
 

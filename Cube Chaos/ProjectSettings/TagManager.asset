@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Obstacle
   - EndPoint
+  - ProgressFill
+  - LevelCompleteUI
+  - GameOverUI
   layers:
   - Default
   - TransparentFX

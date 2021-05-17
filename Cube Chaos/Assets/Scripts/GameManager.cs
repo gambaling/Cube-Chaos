@@ -4,13 +4,17 @@ public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
 
-    public float restarDelay = 1f;
+    private float restarDelay = 1f;
 
     public GameObject completeLevelUI;
-
     public GameObject gameOverUI;
 
-    public GameObject endPoint;
+    private GameObject endPoint;
+
+    private void Start()
+    {
+        endPoint = GameObject.FindGameObjectWithTag("EndPoint");
+    }
 
     public void CompleteLevel ()
     {
