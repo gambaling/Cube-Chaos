@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.8862746, g: 0.8862746, b: 0.8862746, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.025
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 220517686}
   m_IndirectSpecularColor: {r: 0.43916932, g: 0.4874432, b: 0.5676932, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 0322524e5541d5c43a4fb7b63b25c9ea, type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 5de5a734427093149a64f93a5bdd4a1b, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -290,10 +290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c703f1c406108d478bd385411e7a6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restarDelay: 1
   completeLevelUI: {fileID: 1215927034}
   gameOverUI: {fileID: 1215927033}
-  endPoint: {fileID: 1452082068}
 --- !u!4 &347132289
 Transform:
   m_ObjectHideFlags: 0
@@ -401,6 +399,14 @@ PrefabInstance:
       propertyPath: sameOverPlayer
       value: 
       objectReference: {fileID: 919082121}
+    - target: {fileID: 1111732746584320752, guid: d92053716981adf4baab7de5b6cd94fd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1806528666619470167, guid: d92053716981adf4baab7de5b6cd94fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3079028630762468477, guid: d92053716981adf4baab7de5b6cd94fd, type: 3}
       propertyPath: m_Colors.m_NormalColor.a
       value: 1
@@ -625,6 +631,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7592052302333915363, guid: d92053716981adf4baab7de5b6cd94fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979375194243001734, guid: d92053716981adf4baab7de5b6cd94fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8119136916189491984, guid: d92053716981adf4baab7de5b6cd94fd, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -824,11 +838,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ea207d38fff80c4d9037592f9d5f8f8, type: 3}
---- !u!1 &1452082068 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1352933205523215525, guid: 8ea207d38fff80c4d9037592f9d5f8f8, type: 3}
-  m_PrefabInstance: {fileID: 1452082067}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1993833443
 GameObject:
   m_ObjectHideFlags: 0
