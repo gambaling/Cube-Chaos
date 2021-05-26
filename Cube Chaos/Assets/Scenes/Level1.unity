@@ -1857,11 +1857,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3132689982108342584, guid: 4a33293fb29b1bf48985fbc03bd00eef, type: 3}
       propertyPath: xAxisForce
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3132689982108342584, guid: 4a33293fb29b1bf48985fbc03bd00eef, type: 3}
       propertyPath: zAxisForce
-      value: 5000
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 3132689982108342585, guid: 4a33293fb29b1bf48985fbc03bd00eef, type: 3}
       propertyPath: m_RootOrder
