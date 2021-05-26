@@ -5,18 +5,25 @@ using UnityEngine;
 
 public class ObstacleGenerator : MonoBehaviour
 {
-    private static string SIMPLE_CUBE = "SimpleCube";
-    private static string SIMPLE_RECTANGLE = "SimpleRectangle";
-    private static string BIG_RECTANGLE = "BigRectangle";
+    private string SIMPLE_CUBE = "SimpleCube";
+    private string SIMPLE_RECTANGLE = "SimpleRectangle";
+    private string BIG_RECTANGLE = "BigRectangle";
+
+    private List<GameObject> allObstacles;
 
     [Range(1, 100)]
     public int percentOfObstacles = 1;
 
+    private void Awake()
+    {
+        allObstacles = getChildWithTag(SIMPLE_CUBE);
+        allObstacles.AddRange(getChildWithTag(SIMPLE_RECTANGLE));
+        allObstacles.AddRange(getChildWithTag(BIG_RECTANGLE));
+    }
+
     public void RefreshObstacle()
     {
-        EnableObstacle(getChildWithTag(SIMPLE_CUBE));
-        EnableObstacle(getChildWithTag(SIMPLE_RECTANGLE));
-        EnableObstacle(getChildWithTag(BIG_RECTANGLE));
+        EnableObstacle(allObstacles);
     }
 
     private void EnableObstacle(List<GameObject> obstacles)
