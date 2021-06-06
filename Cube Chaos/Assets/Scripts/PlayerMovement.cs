@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float xAxisForce = 100f;
     private bool deadByCollision;
 
+    public Explosion explosion;
+
     public void MoveToTheRigth ()
     {
         playerRB.AddForce(xAxisForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
@@ -55,5 +57,6 @@ public class PlayerMovement : MonoBehaviour
     {
         this.enabled = false;
         deadByCollision = true;
+        explosion.Explode();
     }
 }
